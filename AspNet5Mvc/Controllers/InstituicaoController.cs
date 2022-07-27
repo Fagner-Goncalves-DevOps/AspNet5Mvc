@@ -72,13 +72,13 @@ namespace AspNet5Mvc.Controllers
         //deletando
         public ActionResult Delete(long id) 
         {
-            return View(_instituicaos.Where(i => i.InstituicaoID == id).First()) ;
+            return View(_instituicaos.Where(i => i.InstituicaoID == id).FirstOrDefault()) ;
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(Instituicao instituicao) 
         {
-            _instituicaos.Remove(_instituicaos.Where(i => i.InstituicaoID == instituicao.InstituicaoID).First());
+            _instituicaos.Remove(_instituicaos.Where(i => i.InstituicaoID == instituicao.InstituicaoID).FirstOrDefault());
             return RedirectToAction("Index");
         }
 
