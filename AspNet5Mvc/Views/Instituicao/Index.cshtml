@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AspNet5Mvc.Models.Instituicao>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create"> Criar nova instituição </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InstituicaoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InstituicaoID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Endereco)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { item.InstituicaoID/* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { item.InstituicaoID /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { item.InstituicaoID /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+            }
+    </tbody>
+</table>
+</body>
+</html>
