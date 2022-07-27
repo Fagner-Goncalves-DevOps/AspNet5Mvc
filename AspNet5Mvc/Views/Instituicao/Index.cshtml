@@ -32,22 +32,22 @@
     </thead>
     <tbody>
             @foreach (var item in Model) {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.InstituicaoID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nome)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Endereco)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { item.InstituicaoID/* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { item.InstituicaoID /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { item.InstituicaoID /* id=item.PrimaryKey */ })
-                        </td>
-                    </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstituicaoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.InstituicaoID/* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { id = item.InstituicaoID /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.InstituicaoID /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
             }
     </tbody>
 </table>
