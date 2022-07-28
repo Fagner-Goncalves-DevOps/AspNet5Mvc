@@ -56,10 +56,8 @@ namespace AspNet5Mvc.Controllers
         public async Task<IActionResult> Edit(long? id) 
         {
             if (id == null) return NotFound();
-
             var departamento = await _sqlContext.Departamentos.SingleOrDefaultAsync(d => d.DepartamentoID == id);
             if (departamento == null) return NotFound();
-
             return View(departamento);
         }
         [HttpPost]

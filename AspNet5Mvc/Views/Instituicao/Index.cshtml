@@ -43,9 +43,13 @@
                 @Html.DisplayFor(modelItem => item.Endereco)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.InstituicaoID/* id=item.PrimaryKey */ }) |
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.InstituicaoID/* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { id = item.InstituicaoID /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.InstituicaoID /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { id = item.InstituicaoID /* id=item.PrimaryKey */ })*@
+
+                <a asp-action="Edit" asp-route-id="@item.InstituicaoID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InstituicaoID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InstituicaoID">Delete</a>
             </td>
         </tr>
             }

@@ -1,5 +1,7 @@
-﻿using AspNet5Mvc.Models;
+﻿using AspNet5Mvc.Data;
+using AspNet5Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,25 +13,20 @@ namespace AspNet5Mvc.Controllers
 {
     public class InstituicaoController : Controller
     {
-        private static IList<Instituicao> _instituicaos = new List<Instituicao>()
-        {
-         new Instituicao(){InstituicaoID = 1, Nome="UniParaná", Endereco="Paraná"},
-         new Instituicao(){InstituicaoID = 2, Nome="UniSanta", Endereco="Santa Catarina"},
-         new Instituicao(){InstituicaoID = 3, Nome="UniSãoPaulo", Endereco="São Paulo"},
-         new Instituicao(){InstituicaoID = 4, Nome="UniSulgrandense", Endereco="Rio Grande do Sul"},
-         new Instituicao(){InstituicaoID = 5, Nome="UniCarioca", Endereco="Rio de Janeiro"}
-        };
+        private readonly SqlContext _sqlContext;
 
+        public InstituicaoController(SqlContext sqlContext) 
+        {
+            _sqlContext = sqlContext;
+        }
         /*
         ActionResult ja é uma classe abstrata, outras classes são estendidas
         quanto mais descer o nível hierárquico das interfaces e classes, mais especializados ficam os tipos de retorno para as actions.
         existe tambem outras formas de retornos especializados 
         */
-
-        public IActionResult Index() 
+        public async Task<IActionResult> Index() 
         {
-            return View(_instituicaos);
-            //_instituicaos.OrderBy(i =>i.Nome) para ordenação
+            return View(await _sqlContext.Instituicoes.OrderBy(c=>c.Nome).ToListAsync());
         }
 
 
@@ -40,50 +37,87 @@ namespace AspNet5Mvc.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Instituicao instituicao)
+        public async Task<IActionResult> Create([Bind("Nome, Endereco")] Instituicao instituicao)
         {
-            _instituicaos.Add(instituicao);
-            instituicao.InstituicaoID = _instituicaos.Select(i => i.InstituicaoID).Max() + 1;
-
-            return RedirectToAction("Index");
+            try 
+            {
+                if (ModelState.IsValid) 
+                {
+                    _sqlContext.Add(instituicao);
+                    await _sqlContext.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            } 
+            catch (DbUpdateException) 
+            {
+                ModelState.AddModelError("", "Não foi possível inserir os dados.");
+            } 
+            return View(instituicao);
         }
 
 
         //Editar
-        public ActionResult Edit(long id)
+        public async Task<IActionResult> Edit(long? id)
         {
-            return View(_instituicaos.Where(i => i.InstituicaoID == id).FirstOrDefault());
+            if (id == null) return NotFound();
+            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
+            if (instituicao == null) return NotFound();
+            return View(instituicao);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Instituicao instituicao) 
+        public async Task<IActionResult> Edit(long? id, [Bind("InstituicaoID, Nome, Endereco")] Instituicao instituicao) 
         {
-            _instituicaos.Remove(_instituicaos.Where(i => i.InstituicaoID == instituicao.InstituicaoID).FirstOrDefault());
-            _instituicaos.Add(instituicao);
-            return RedirectToAction("Index");
+            if (id != instituicao.InstituicaoID) return NotFound();
+            if (ModelState.IsValid)
+            try 
+            {
+                _sqlContext.Update(instituicao);
+                await _sqlContext.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            } 
+            catch (DbUpdateConcurrencyException) 
+            {
+                if (!InstituicaoExists(instituicao.InstituicaoID)) return NotFound();
+            } 
+            return View(instituicao);
+
         }
 
         //Detalhes
-        public ActionResult Details(long id) 
+        public async Task<IActionResult> Details(long? id) 
         {
-            return View(_instituicaos.Where(i => i.InstituicaoID == id).FirstOrDefault());
+            if (id == null) return NotFound();
+            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
+            if (instituicao == null) return NotFound();
+            return View(instituicao);
         }
 
         //Deletar
-        public ActionResult Delete(long id) 
+        public async Task<IActionResult> Delete(long? id) 
         {
-            return View(_instituicaos.Where(i => i.InstituicaoID == id).FirstOrDefault()) ;
+            if (id == null) return NotFound();
+            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
+            if (instituicao == null) return NotFound();
+            return View(instituicao);
         }
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(Instituicao instituicao) 
+        public async Task<IActionResult> DeleteConfirmed(long? id) 
         {
-            _instituicaos.Remove(_instituicaos.Where(i => i.InstituicaoID == instituicao.InstituicaoID).FirstOrDefault());
-            return RedirectToAction("Index");
+            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
+            _sqlContext.Instituicoes.Remove(instituicao);
+            await _sqlContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        //metodo para verificar se a instituição existe
+        private bool InstituicaoExists(long? id)
+        {
+            return _sqlContext.Instituicoes.Any(c => c.InstituicaoID == id);
         }
 
 
-        //_instituicaos[_instituicaos.IndexOf(_instituicaos.Where(i=> i.InstituicaoID == instituicao.InstituicaoID).FirstOrDefault())] = instituicao;
-        //_instituicaos.Add(instituicao);
+
     }
 }

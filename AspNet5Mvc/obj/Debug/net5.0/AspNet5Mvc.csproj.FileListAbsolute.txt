@@ -130,7 +130,6 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Raz
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Create.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Delete.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Details.cshtml.g.cs
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Edit.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Index.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -152,3 +151,4 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Raz
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Edit.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Details.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Delete.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Edit.cshtml.g.cs
