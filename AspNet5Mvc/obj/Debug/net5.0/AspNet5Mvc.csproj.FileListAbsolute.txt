@@ -20,6 +20,7 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Mic
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.Identity.Client.dll
@@ -125,11 +126,17 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\sco
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.TagHelpers.input.cache
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.TagHelpers.output.cache
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.RazorCoreGenerate.cache
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Create.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Delete.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Details.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Edit.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Index.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Create.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Delete.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Details.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Edit.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Index.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -144,11 +151,4 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Asp
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\ref\AspNet5Mvc.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.pdb
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.genruntimeconfig.cache
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.csproj.AssemblyReference.cache
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Index.cshtml.g.cs
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Create.cshtml.g.cs
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Edit.cshtml.g.cs
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Details.cshtml.g.cs
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Departamento\Delete.cshtml.g.cs
-C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\Edit.cshtml.g.cs

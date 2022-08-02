@@ -23,7 +23,7 @@ namespace AspNet5Mvc.Controllers
 
         public async Task<IActionResult> Index() 
         {
-            return View(await _sqlContext.Departamentos.OrderBy(c=>c.Nome).ToListAsync());
+            return View(await _sqlContext.Departamentos.Include(d => d.Instituicao).OrderBy(c => c.Nome).ToListAsync());
         }
 
         //criar
