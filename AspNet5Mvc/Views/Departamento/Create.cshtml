@@ -25,6 +25,13 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="InstituicaoID" class="control-label"></label>
+                <select 
+                        asp-for="InstituicaoID" class="form-control" 
+                        asp-items="@(new SelectList(@ViewBag.Instituicoes, "InstituicaoID", "Nome"))">
+                </select>
+
+
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

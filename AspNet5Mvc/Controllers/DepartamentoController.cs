@@ -2,6 +2,7 @@
 using AspNet5Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -29,11 +30,14 @@ namespace AspNet5Mvc.Controllers
         //criar
         public IActionResult Create() 
         {
+            var instituicoes = _sqlContext.Instituicoes.OrderBy(c => c.Nome).ToList();
+            instituicoes.Insert(0, new Instituicao() { InstituicaoID = 0, Nome= "Selecione a instituição" });
+            ViewBag.Instituicoes = instituicoes;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Nome")] Departamento departamento) 
+        public async Task<IActionResult> Create([Bind("Nome, InstituicaoID")] Departamento departamento) 
         {
             //tentar entender depois !ModelState.IsValid sem try
             try
@@ -58,11 +62,12 @@ namespace AspNet5Mvc.Controllers
             if (id == null) return NotFound();
             var departamento = await _sqlContext.Departamentos.SingleOrDefaultAsync(d => d.DepartamentoID == id);
             if (departamento == null) return NotFound();
+            ViewBag.Instituicoes = new SelectList(_sqlContext.Instituicoes.OrderBy(c=>c.Nome), "InstituicaoID", "Nome", departamento.DepartamentoID );
             return View(departamento);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long? id, [Bind("DepartamentoID, Nome")] Departamento departamento)
+        public async Task<IActionResult> Edit(long? id, [Bind("DepartamentoID, Nome, InstituicaoID")] Departamento departamento)
         {
             if (id != departamento.DepartamentoID) return NotFound();
             if(ModelState.IsValid)
@@ -76,6 +81,7 @@ namespace AspNet5Mvc.Controllers
                 {
                     if (!DepartamentoExists(departamento.DepartamentoID)) return NotFound();
                 }
+            ViewBag.Instituicoes = new SelectList(_sqlContext.Instituicoes.OrderBy(c=>c.Nome), "InstituicaoID", "Nome", departamento.InstituicaoID);
             return View(departamento);
 
         }
