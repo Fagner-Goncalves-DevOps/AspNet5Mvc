@@ -88,7 +88,7 @@ namespace AspNet5Mvc.Controllers
         public async Task<IActionResult> Details(long? id) 
         {
             if (id == null) return NotFound();
-            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
+            var instituicao = await _sqlContext.Instituicoes.Include(c=>c.Departamentos).SingleOrDefaultAsync(c=>c.InstituicaoID==id) ;
             if (instituicao == null) return NotFound();
             return View(instituicao);
         }

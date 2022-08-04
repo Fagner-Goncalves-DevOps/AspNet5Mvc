@@ -90,14 +90,17 @@ namespace AspNet5Mvc.Controllers
         {
             if (id == null) return NotFound();
             var departamento = await _sqlContext.Departamentos.SingleOrDefaultAsync(d =>d.DepartamentoID==id);
+            _sqlContext.Instituicoes.Where(i => departamento.InstituicaoID == i.InstituicaoID).Load();
             if (departamento == null) return NotFound();
             return View(departamento);
+
         }
 
         public async Task<IActionResult> Delete(long? id) 
         {
             if (id == null) return NotFound();
             var departamento = await _sqlContext.Departamentos.SingleOrDefaultAsync(d => d.DepartamentoID == id);
+            //_sqlContext.Instituicoes.Where(i => departamento.InstituicaoID == i.InstituicaoID).Load();
             if (departamento == null) return NotFound();
             return View(departamento);
         }

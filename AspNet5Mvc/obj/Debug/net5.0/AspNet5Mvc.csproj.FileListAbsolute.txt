@@ -152,3 +152,4 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\ref
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.pdb
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.genruntimeconfig.cache
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.csproj.AssemblyReference.cache
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Instituicao\_ComDepartamentos.cshtml.g.cs
