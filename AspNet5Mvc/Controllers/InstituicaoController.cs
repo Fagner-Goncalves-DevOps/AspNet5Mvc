@@ -1,5 +1,5 @@
 ﻿using AspNet5Mvc.Data;
-using AspNet5Mvc.Models;
+using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

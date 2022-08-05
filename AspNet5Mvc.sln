@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet5Mvc", "AspNet5Mvc\AspNet5Mvc.csproj", "{8608781E-D1A4-4F24-BDF0-7F59BB9D22B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNet5Mvc", "AspNet5Mvc\AspNet5Mvc.csproj", "{8608781E-D1A4-4F24-BDF0-7F59BB9D22B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{9B80E3DB-62AA-45D8-88BB-BD1F12DD6219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{10CDAFB0-4837-4FE5-829D-7DD4700A49F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{8608781E-D1A4-4F24-BDF0-7F59BB9D22B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8608781E-D1A4-4F24-BDF0-7F59BB9D22B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8608781E-D1A4-4F24-BDF0-7F59BB9D22B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CDAFB0-4837-4FE5-829D-7DD4700A49F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10CDAFB0-4837-4FE5-829D-7DD4700A49F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10CDAFB0-4837-4FE5-829D-7DD4700A49F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10CDAFB0-4837-4FE5-829D-7DD4700A49F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10CDAFB0-4837-4FE5-829D-7DD4700A49F7} = {9B80E3DB-62AA-45D8-88BB-BD1F12DD6219}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACD4A02B-4653-47CC-A0EA-EA39A4C3BA96}
