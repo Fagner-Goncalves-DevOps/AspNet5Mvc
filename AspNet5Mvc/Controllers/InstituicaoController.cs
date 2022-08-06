@@ -14,14 +14,15 @@ namespace AspNet5Mvc.Controllers
 {
     public class InstituicaoController : Controller
     {
+        //não esta usando injeção dependencia
+
         private readonly SqlContext _sqlContext;
         private readonly InstituicaoRepository _instituicaoRepository;
 
-        public InstituicaoController(InstituicaoRepository instituicaoRepository,
-                                     SqlContext sqlContext) 
+        public InstituicaoController(SqlContext sqlContext) 
         {
             _sqlContext = sqlContext; //metodos ainda estão direto no data
-            _instituicaoRepository = instituicaoRepository;
+            _instituicaoRepository = new InstituicaoRepository(sqlContext);
         }
         /*
         ActionResult ja é uma classe abstrata, outras classes são estendidas
@@ -47,8 +48,7 @@ namespace AspNet5Mvc.Controllers
             {
                 if (ModelState.IsValid) 
                 {
-                    _sqlContext.Add(instituicao);
-                    await _sqlContext.SaveChangesAsync();
+                    await _instituicaoRepository.GravarInstituicao(instituicao);
                     return RedirectToAction(nameof(Index));
                 }
             } 
@@ -63,10 +63,7 @@ namespace AspNet5Mvc.Controllers
         //Editar
         public async Task<IActionResult> Edit(long? id)
         {
-            if (id == null) return NotFound();
-            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
-            if (instituicao == null) return NotFound();
-            return View(instituicao);
+            return await ObterVisaoInstituicaoPorId(id);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -76,52 +73,50 @@ namespace AspNet5Mvc.Controllers
             if (ModelState.IsValid)
             try 
             {
-                _sqlContext.Update(instituicao);
-                await _sqlContext.SaveChangesAsync();
+                await _instituicaoRepository.GravarInstituicao(instituicao);
                 return RedirectToAction(nameof(Index));
             } 
             catch (DbUpdateConcurrencyException) 
             {
-                if (!InstituicaoExists(instituicao.InstituicaoID)) return NotFound();
+                if (! await InstituicaoExists(instituicao.InstituicaoID)) return NotFound();
             } 
             return View(instituicao);
-
         }
 
         //Detalhes
         public async Task<IActionResult> Details(long? id) 
         {
-            if (id == null) return NotFound();
-            var instituicao = await _sqlContext.Instituicoes.Include(c=>c.Departamentos).SingleOrDefaultAsync(c=>c.InstituicaoID==id) ;
-            if (instituicao == null) return NotFound();
-            return View(instituicao);
+            return await ObterVisaoInstituicaoPorId(id);
         }
 
         //Deletar
         public async Task<IActionResult> Delete(long? id) 
         {
-            if (id == null) return NotFound();
-            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
-            if (instituicao == null) return NotFound();
-            return View(instituicao);
+            return await ObterVisaoInstituicaoPorId(id);
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long? id) 
+        public async Task<IActionResult> DeleteConfirmed(long? id)
         {
-            var instituicao = await _sqlContext.Instituicoes.SingleOrDefaultAsync(c => c.InstituicaoID == id);
-            _sqlContext.Instituicoes.Remove(instituicao);
-            await _sqlContext.SaveChangesAsync();
+            var instituicao = await _instituicaoRepository.EliminarInstituicaoPorId(id);
+            TempData["Message"] = "Instituição" + instituicao.Nome.ToUpper() + "foi removida";
             return RedirectToAction(nameof(Index));
         }
 
-        //metodo para verificar se a instituição existe
-        private bool InstituicaoExists(long? id)
+
+        //Metodos unicos gerados para melhoria do codigo
+        private async Task<bool> InstituicaoExists(long? id)
         {
-            return _sqlContext.Instituicoes.Any(c => c.InstituicaoID == id);
+            return await _instituicaoRepository.ObterInstituicaoPorId(id) != null;
         }
 
+        private async Task<IActionResult> ObterVisaoInstituicaoPorId(long? id) 
+        {
+            if (id == null) return NotFound();
+            var instituicao = await _instituicaoRepository.ObterInstituicaoPorId(id);
+            if (instituicao == null) return NotFound();
+            return View(instituicao);
 
-
+        }
     }
 }
