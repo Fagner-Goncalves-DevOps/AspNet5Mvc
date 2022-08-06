@@ -1,4 +1,5 @@
 ﻿using AspNet5Mvc.Data;
+using AspNet5Mvc.Data.Repository.Cadastros;
 using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,13 @@ namespace AspNet5Mvc.Controllers
     public class InstituicaoController : Controller
     {
         private readonly SqlContext _sqlContext;
+        private readonly InstituicaoRepository _instituicaoRepository;
 
-        public InstituicaoController(SqlContext sqlContext) 
+        public InstituicaoController(InstituicaoRepository instituicaoRepository,
+                                     SqlContext sqlContext) 
         {
-            _sqlContext = sqlContext;
+            _sqlContext = sqlContext; //metodos ainda estão direto no data
+            _instituicaoRepository = instituicaoRepository;
         }
         /*
         ActionResult ja é uma classe abstrata, outras classes são estendidas
@@ -26,7 +30,7 @@ namespace AspNet5Mvc.Controllers
         */
         public async Task<IActionResult> Index() 
         {
-            return View(await _sqlContext.Instituicoes.OrderBy(c=>c.Nome).ToListAsync());
+            return View(await _instituicaoRepository.ObterInstituicoesOrderPorNome().ToListAsync());
         }
 
 
