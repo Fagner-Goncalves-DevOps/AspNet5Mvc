@@ -15,12 +15,25 @@ namespace AspNet5Mvc.Data
 
         public DbSet<Instituicao> Instituicoes { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
-        
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Disciplina> Disciplinas { get; set; }
+        public DbSet<Academico> Academicos { get; set; }
+        //public DbSet<CursoDisciplina> CursosDisciplinas { get; set; } não precisa passar aqui devido ja estar no Onmodelcreating
+
+
         //implementação basica inicial para o melhor entendimento
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Departamento>().ToTable("Departamento");
+            modelBuilder.Entity<CursoDisciplina>().HasKey(cd => new { cd.CursoID, cd.DisciplinaID });
+            modelBuilder.Entity<CursoDisciplina>()
+                            .HasOne(c => c.Curso)
+                            .WithMany(cd => cd.CursosDisciplinas)//CursosDisciplinas
+                            .HasForeignKey(c => c.CursoID);
+            modelBuilder.Entity<CursoDisciplina>()
+                            .HasOne(d => d.Disciplina)
+                            .WithMany(cd => cd.CursosDisciplinas)
+                            .HasForeignKey(d => d.DisciplinaID);
 
         }
 

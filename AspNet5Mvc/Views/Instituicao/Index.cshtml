@@ -45,9 +45,9 @@
                         @Html.DisplayFor(modelItem => item.Endereco)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.InstituicaoID">Edit</a>	|
-                        <a asp-action="Details" asp-route-id="@item.InstituicaoID">Details</a>	|
-                        <a asp-action="Delete" asp-route-id="@item.InstituicaoID">Delete</a>
+                        <a class="btn btn-outline-info btn-sm" asp-action="Edit" asp-route-id="@item.InstituicaoID">Editar</a>	
+                        <a class="btn btn-outline-success btn-sm" asp-action="Details" asp-route-id="@item.InstituicaoID">Detalhes</a>	
+                        <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@item.InstituicaoID">Deletar</a>
                     </td>
                 </tr>
             }
