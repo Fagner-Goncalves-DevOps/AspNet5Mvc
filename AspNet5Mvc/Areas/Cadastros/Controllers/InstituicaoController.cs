@@ -1,6 +1,7 @@
 ﻿using AspNet5Mvc.Data;
 using AspNet5Mvc.Data.Repository.Cadastros;
 using Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -10,8 +11,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNet5Mvc.Controllers
+namespace AspNet5Mvc.Areas.Cadastros.Controllers
 {
+    [Area("Cadastros")]
+    [Authorize]
     public class InstituicaoController : Controller
     {
         //não esta usando injeção dependencia

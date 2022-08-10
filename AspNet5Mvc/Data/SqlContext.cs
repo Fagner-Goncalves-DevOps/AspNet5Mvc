@@ -1,4 +1,6 @@
-﻿using Core.Entities;
+﻿using AspNet5Mvc.Models.Infra;
+using Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AspNet5Mvc.Data
 {
-    public class SqlContext : DbContext
+    public class SqlContext : IdentityDbContext<UsuarioDaAplicacao> //DbContext
     {
         public SqlContext(DbContextOptions<SqlContext> options) : base(options) 
         {

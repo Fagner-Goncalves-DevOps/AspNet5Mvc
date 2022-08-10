@@ -12,8 +12,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNet5Mvc.Controllers
+namespace AspNet5Mvc.Areas.Cadastros.Controllers
 {
+    [Area("Cadastros")]
     public class DepartamentoController : Controller
     {
         //não esta usando injeção dependencia

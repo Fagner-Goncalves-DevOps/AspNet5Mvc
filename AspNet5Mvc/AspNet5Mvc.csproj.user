@@ -9,5 +9,8 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_DbContextTypeFullName>AspNet5Mvc.Data.SqlContext</WebStackScaffolding_DbContextTypeFullName>
     <ShowAllFiles>true</ShowAllFiles>
+    <Area_SelectedScaffolderID>AreaScaffolder</Area_SelectedScaffolderID>
+    <Area_SelectedScaffolderCategoryPath>root/Common</Area_SelectedScaffolderCategoryPath>
+    <WebStackScaffolding_DependencyDialogWidth>650</WebStackScaffolding_DependencyDialogWidth>
   </PropertyGroup>
 </Project>

@@ -1,6 +1,8 @@
 using AspNet5Mvc.Data;
+using AspNet5Mvc.Models.Infra;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,10 +28,20 @@ namespace AspNet5Mvc
         {
             services.AddControllersWithViews();
 
-            //aqui vai servicos do banco dbcontext
-            services.AddDbContext<SqlContext>(options => 
-                                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<SqlContext>(options =>
+                                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddIdentity<UsuarioDaAplicacao, IdentityRole>()
+                 .AddEntityFrameworkStores<SqlContext>()
+                 .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Infra/Acessar";
+                options.AccessDeniedPath = "/Infra/AcessoNegado";
+            });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,12 +57,18 @@ namespace AspNet5Mvc
             }
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "areaRoute",
+                    pattern: "{area:exists}/{controller}/{action=Index}/{id?}");
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

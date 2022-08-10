@@ -13,8 +13,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNet5Mvc.Controllers
+namespace AspNet5Mvc.Areas.Discente.Controllers
 {
+    [Area("Discente")]
     public class AcademicoController : Controller
     {
         //não esta usando injeção dependencia
