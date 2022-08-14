@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<AspNet5Mvc.Models.Infra.UsuarioDaAplicacao> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<AspNet5Mvc.Models.Infra.UsuarioDaAplicacao> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,8 +32,8 @@
                             <a class="nav-link text-dark" asp-area="Cadastros" asp-controller="Departamento" asp-action="Index">Departamento</a>
                         </li>
                         @*<li class="nav-item">
-                            <a class="nav-item	nav-link" asp-area="" asp-controller="Academico" asp-action="Index">Acadêmicos</a>
-                        </li>*@
+                                <a class="nav-item	nav-link" asp-area="" asp-controller="Academico" asp-action="Index">Acadêmicos</a>
+                            </li>*@
                     </ul>
                 </div>
             </div>
@@ -53,6 +56,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

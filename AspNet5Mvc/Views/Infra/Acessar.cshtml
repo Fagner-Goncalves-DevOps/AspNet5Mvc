@@ -1,0 +1,61 @@
+﻿@model AspNet5Mvc.Models.Infra.AcessarViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="card-header text-white bg-info text-center h2">Utilize uma conta local para acessar</div>
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <section class="section-conten padding-y container" style="min-height:45vh">
+            <div class="card-body">
+                <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Senha"></label>
+                        <input asp-for="Senha" class="form-control" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="LembrarDeMim">
+                                <input asp-for="LembrarDeMim" />
+                                @Html.DisplayNameFor(m => m.LembrarDeMim)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a asp-action="ForgotPassword">Esquecer senha?</a>
+                        </p>
+                        <p>
+                            <a asp-action="RegistrarNovoUsuario" asp-route-returnurl="@ViewData["ReturnUrl"]">Registrar um novo usuário?</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+

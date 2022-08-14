@@ -162,3 +162,6 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Raz
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Areas\Discente\Views\Academico\Details.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Areas\Discente\Views\Academico\Edit.cshtml.g.cs
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Areas\Discente\Views\Academico\Index.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Infra\Acessar.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Views\Infra\RegistrarNovoUsuario.cshtml.g.cs
