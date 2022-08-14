@@ -61,6 +61,17 @@ namespace AspNet5Mvc.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RegistrarNovoUsuario(string returnUrl = null) 
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegistrarNovoUsuario(RegistrarNovoUsuarioViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -80,7 +91,6 @@ namespace AspNet5Mvc.Controllers
             }
             return View(model);
         }
-
 
 
         [HttpGet]

@@ -15,8 +15,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AspNet5Mvc</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
@@ -31,14 +30,24 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Cadastros" asp-controller="Departamento" asp-action="Index">Departamento</a>
                         </li>
-                        @*<li class="nav-item">
-                                <a class="nav-item	nav-link" asp-area="" asp-controller="Academico" asp-action="Index">Acadêmicos</a>
-                            </li>*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Discente" asp-controller="Academico" asp-action="Index">Acadêmicos</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="row">
-                <a class="nav-item	nav-link" asp-area="Discente" asp-controller="Academico" asp-action="Index">Acadêmicos</a>
+            <div class="row" style="text-align:right;">
+                <div class="col-12"></div>
+                <div class="col-12">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div>Olá @UserManager.GetUserName(User) | @Html.ActionLink("Logout", "Sair", "Infra", new { area = "" } ) </div> 
+                    }
+                    else
+                    {
+                        <a class="nav-item nav-link" asp-area="" asp-controller="Infra" asp-action="Acessar">Login</a>
+                    }
+                </div>
             </div>
         </nav>
     </header>
