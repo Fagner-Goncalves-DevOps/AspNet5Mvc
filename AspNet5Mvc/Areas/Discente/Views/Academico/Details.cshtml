@@ -13,33 +13,38 @@
 </head>
 <body>
 
-<div>
-    <h4>Academico</h4>
+    <div>
+        <h4>Academico</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RegistroAcademico)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RegistroAcademico)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nascimento)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-4">
+        <img class="img-thumbnail" src="@Url.Action("GetFoto", "Academico", new { id = Model.AcademicoID })" style="display:block; margin-left:auto;margin-right:auto;" />
+        @Html.ActionLink("Download", "DownloadFoto", "Academico", new { id = Model.AcademicoID }, null)
+    </div>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegistroAcademico)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegistroAcademico)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nascimento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nascimento)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.AcademicoID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div>
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.AcademicoID">Editar</a>
+        <a class="btn btn-primary" asp-action="Index">Voltar Para Lista</a>
+    </div>
 </body>
 </html>
