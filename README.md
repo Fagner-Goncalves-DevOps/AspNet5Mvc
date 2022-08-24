@@ -4,3 +4,4 @@ NET5 Mvc essentials
 -- parei 8 -  236 uploads
 -- Projeto completo de estudo, com diversas final
 -- dropdown e ultimos detalhes
+-- ajustes finais
