@@ -6,17 +6,12 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Curso
+    public class Professor
     {
-        public long? CursoID { get; set; }
+        public long? ProfessorID { get; set; }
         public string Nome { get; set; }
 
         //relacionamento 
-        public long? DepartamentoID { get; set; }
-        public Departamento Departamento { get; set; }
-        public virtual ICollection<CursoDisciplina> CursosDisciplinas { get; set; }
         public virtual ICollection<CursoProfessor> CursosProfessores { get; set; }
-
     }
 }
-
