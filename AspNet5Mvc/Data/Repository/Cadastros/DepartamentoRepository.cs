@@ -30,6 +30,13 @@ namespace AspNet5Mvc.Data.Repository.Cadastros
 				.Load(); ;
 			return departamento;
 		}
+
+		public IQueryable<Departamento> ObterDepartamentoPorInstituicao(long instituicaoID) 
+		{
+			var departamentos = _sqlContext.Departamentos.Where(d => d.InstituicaoID == instituicaoID).OrderBy(d => d.Nome);
+			return departamentos;
+		}
+
 		public async Task<Departamento> GravarDepartamento(Departamento departamento)
 		{
 			if (departamento.DepartamentoID == null) _sqlContext.Departamentos.Add(departamento);

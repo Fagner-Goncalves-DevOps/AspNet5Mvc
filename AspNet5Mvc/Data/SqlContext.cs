@@ -20,6 +20,8 @@ namespace AspNet5Mvc.Data
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<Academico> Academicos { get; set; }
+        public DbSet<Professor> Professores { get; set; }
+
         //public DbSet<CursoDisciplina> CursosDisciplinas { get; set; } não precisa passar aqui devido ja estar no Onmodelcreating
 
 
@@ -36,6 +38,19 @@ namespace AspNet5Mvc.Data
                             .HasOne(d => d.Disciplina)
                             .WithMany(cd => cd.CursosDisciplinas)
                             .HasForeignKey(d => d.DisciplinaID);
+            // CursoProfessor
+            modelBuilder.Entity<CursoProfessor>()
+                             .HasKey(cd => new { cd.CursoID, cd.ProfessorID });
+
+            modelBuilder.Entity<CursoProfessor>()
+                            .HasOne(c => c.Curso)
+                            .WithMany(cd => cd.CursosProfessores)
+                            .HasForeignKey(c => c.CursoID);
+
+            modelBuilder.Entity<CursoProfessor>()
+                            .HasOne(d => d.Professor)
+                            .WithMany(cd => cd.CursosProfessores)
+                            .HasForeignKey(d => d.ProfessorID);
 
         }
 
