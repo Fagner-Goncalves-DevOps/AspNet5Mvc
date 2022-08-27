@@ -17,14 +17,12 @@ namespace AspNet5Mvc.Areas.Cadastros.Controllers
     [Authorize]
     public class InstituicaoController : Controller
     {
-        //não esta usando injeção dependencia
-
         private readonly SqlContext _sqlContext;
         private readonly InstituicaoRepository _instituicaoRepository;
 
         public InstituicaoController(SqlContext sqlContext) 
         {
-            _sqlContext = sqlContext; //metodos ainda estão direto no data
+            _sqlContext = sqlContext;
             _instituicaoRepository = new InstituicaoRepository(sqlContext);
         }
         /*
