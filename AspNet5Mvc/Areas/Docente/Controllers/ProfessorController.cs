@@ -104,6 +104,9 @@ namespace AspNet5Mvc.Areas.Docente.Controllers
             ViewBag.Professores = professores;
         }
 
+
+
+        //retorno jsonresult para carregar filtros dos dropdown
         public JsonResult ObterDepartamentosPorInstituicao(long actionID)
         {
             var departamentos = departamentoRepository.ObterDepartamentoPorInstituicao(actionID).ToList();
