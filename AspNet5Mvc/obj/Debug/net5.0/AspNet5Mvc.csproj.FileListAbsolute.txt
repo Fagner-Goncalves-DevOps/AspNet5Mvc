@@ -165,3 +165,6 @@ C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Asp
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\ref\AspNet5Mvc.dll
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.pdb
 C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\AspNet5Mvc.genruntimeconfig.cache
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Areas\Docente\Views\Professor\AdicionarProfessor.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Areas\Docente\Views\_ViewImports.cshtml.g.cs
+C:\GitHubGeral\AspNetGeral\AspNet5Mvc\AspNet5Mvc\AspNet5Mvc\obj\Debug\net5.0\Razor\Areas\Docente\Views\Professor\VerificarUltimosRegistros.cshtml.g.cs
