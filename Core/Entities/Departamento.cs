@@ -15,6 +15,7 @@ namespace Core.Entities
         public long? InstituicaoID { get; set; }
         public Instituicao Instituicao { get; set; }
 
+        //relação com cursos - virutal para polimorfismo se precisar
         public virtual ICollection<Curso> Cursos { get; set; }
 
     }
